@@ -1,6 +1,5 @@
 package com.belazor.testfinal.utils;
 
-import com.belazor.testfinal.bread.Bread;
 import com.belazor.testfinal.product.Bakery;
 
 import java.util.Comparator;
@@ -8,9 +7,9 @@ import java.util.Comparator;
 /**
  * Created by Tatsiana_Belazor on 01-Mar-18.
  */
-public class BakeryComparator  implements Comparator<Bakery> {
+public class BakeryComparator implements Comparator<Bakery> {
     public int compare(Bakery b1, Bakery b2) {
-        return (int) (b1.getPrice() - b2.getPrice());
+        return (int) (b1.getWeight() - b2.getWeight());
     }
 
 }

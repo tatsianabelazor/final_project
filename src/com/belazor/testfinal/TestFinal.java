@@ -48,9 +48,9 @@ public class TestFinal {
         bakeries1.add(new Bread("Bread", "Buttery", 100, 20));
         bakeries1.add(new Bread("Bread", "Bannok", 200, 30));
 
-        for(Bakery b : bakeries1){
+        for (Bakery b : bakeries1) {
 
-            System.out.println(b.getPrice());
+            System.out.println(b.getType() + b.getWeight());
         }
 
     }
