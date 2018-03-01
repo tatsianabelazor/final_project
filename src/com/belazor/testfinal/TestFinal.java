@@ -16,9 +16,13 @@ public class TestFinal {
         Bread bread2 = new Bread("Bread", "Bannok", 200, 30);
         Bun bun1 = new Bun(15, 100, "Beef bun", "Bun");
         Bun bun2 = new Bun(10, 75, "BBath bun", "Bun");
-        //test
 
-        
-
-}
+        Bakerystore bakerystore = new Bakerystore();
+        bread1.add(bread1);
+        bread2.add(bread2);
+        cake1.add(cake1);
+        cake2.add(cake2);
+        bun1.add(bun1);
+        bun2.add(bun2);
+    }
 }

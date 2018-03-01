@@ -2,11 +2,14 @@ package com.belazor.testfinal.bread;
 
 import com.belazor.testfinal.product.Bakery;
 
+import java.util.ArrayList;
+
 /**
  * Created by Tatsiana_Belazor on 26-Feb-18.
  */
 public class Bread extends Bakery {
     public String name;
+    private ArrayList<Bread> breads = new ArrayList<Bread>();
 
     public Bread(String name, String type, int weight, int price) {
         super(price, weight, type);
@@ -26,4 +29,7 @@ public class Bread extends Bakery {
         System.out.printf("It is a %s%n", getName());
     }
 
+    public void add (Bread bread) {
+        breads.add(bread);
+    }
 }

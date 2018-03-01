@@ -2,12 +2,15 @@ package com.belazor.testfinal.bun;
 
 import com.belazor.testfinal.product.Bakery;
 
+import java.util.ArrayList;
+
 /**
  * Created by Tatsiana_Belazor on 26-Feb-18.
  */
 public class Bun extends Bakery {
 
     public String name;
+    private ArrayList<Bun> buns = new ArrayList<Bun>();
 
     public Bun(float price, float weight, String type, String name) {
         super(price, weight, type);
@@ -26,6 +29,10 @@ public class Bun extends Bakery {
     public void displayProduct() {
         super.displayProduct();
         System.out.printf("It is a %s%n", getName());
+    }
+
+    public void add(Bun bun) {
+        buns.add(bun);
     }
 
 }
