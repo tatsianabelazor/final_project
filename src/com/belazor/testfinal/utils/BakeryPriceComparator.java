@@ -5,11 +5,11 @@ import com.belazor.testfinal.product.Bakery;
 import java.util.Comparator;
 
 /**
- * Created by Tatsiana_Belazor on 01-Mar-18.
+ * Created by Tatsiana_Belazor on 02-Mar-18.
  */
-public class BakeryComparator implements Comparator<Bakery> {
+public class BakeryPriceComparator implements Comparator<Bakery> {
     public int compare(Bakery b1, Bakery b2) {
-        return (int) (b1.getWeight() - b2.getWeight());
+        return (int) (b1.getPrice() - b2.getPrice());
     }
 
 }

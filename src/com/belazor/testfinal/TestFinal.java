@@ -4,7 +4,8 @@ import com.belazor.testfinal.bread.Bread;
 import com.belazor.testfinal.bun.Bun;
 import com.belazor.testfinal.cake.Cake;
 import com.belazor.testfinal.product.Bakery;
-import com.belazor.testfinal.utils.BakeryComparator;
+import com.belazor.testfinal.utils.BakeryPriceComparator;
+import com.belazor.testfinal.utils.BakeryWeightComparator;
 import com.belazor.testfinal.utils.Bakerystore;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class TestFinal {
 
         System.out.println(bread == bread1);
 
-        Comparator<Bakery> pcomp = new BakeryComparator();
+        /*Comparator<Bakery> pcomp = new BakeryWeightComparator();
         TreeSet<Bakery> bakeries1 = new TreeSet(pcomp);
         bakeries1.add(new Bread("Bread", "Buttery", 100, 20));
         bakeries1.add(new Bread("Bread", "Bannok", 200, 30));
@@ -52,6 +53,16 @@ public class TestFinal {
 
             System.out.println(b.getType() + b.getWeight());
         }
+        */
+        Comparator<Bakery> pcomp = new BakeryWeightComparator().thenComparing(new BakeryPriceComparator());
+        TreeSet<Bakery> bakeries1 = new TreeSet(pcomp);
+        bakeries1.add(new Bread("Bread", "Buttery", 100, 20));
+        bakeries1.add(new Bread("Bread", "Bannok", 200, 30));
 
+
+        for(Bakery b : bakeries1){
+
+            System.out.println(b.getType() + " " + " " + b.getWeight() + " " + b.getPrice());
+        }
     }
 }
