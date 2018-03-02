@@ -7,14 +7,14 @@ public abstract class Bakery {
 
     public float price;
     public float weight;
-    public String type;
     public String name;
+    public BakeryType type;
 
-    public Bakery(float price, float weight, String type, String name) {
+    public Bakery(float price, float weight, String name, BakeryType type) {
         this.price = price;
         this.weight = weight;
-        this.type = type;
         this.name = name;
+        this.type = type;
     }
 
     public float getPrice() {
@@ -33,14 +33,6 @@ public abstract class Bakery {
         this.weight = weight;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return name;
     }
@@ -49,8 +41,16 @@ public abstract class Bakery {
         this.name = name;
     }
 
+    public BakeryType getType() {
+        return type;
+    }
+
+    public void setType(BakeryType type) {
+        this.type = type;
+    }
+
     public void displayProduct() {
-        System.out.printf("It is " + type, price, weight);
+        System.out.printf("It is " + name, price, weight);
     }
 
     @Override
@@ -58,9 +58,8 @@ public abstract class Bakery {
         return "Bakery{" +
                 "price=" + price +
                 ", weight=" + weight +
-                ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
+                ", type=" + type +
                 '}';
     }
-
 }

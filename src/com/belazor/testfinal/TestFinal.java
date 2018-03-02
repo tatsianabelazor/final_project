@@ -4,7 +4,7 @@ import com.belazor.testfinal.bread.Bread;
 import com.belazor.testfinal.bun.Bun;
 import com.belazor.testfinal.cake.Cake;
 import com.belazor.testfinal.product.Bakery;
-import com.belazor.testfinal.utils.BakeryPriceComparator;
+import com.belazor.testfinal.product.BakeryType;
 import com.belazor.testfinal.utils.BakeryWeightComparator;
 import com.belazor.testfinal.utils.Bakerystore;
 
@@ -19,12 +19,12 @@ import java.util.TreeSet;
 public class TestFinal {
     public static void main(String[] args) {
 
-        Bread bannok = new Bread("Bread", "Bannok", 200, 30);
-        Bread buttery = new Bread("Bread", "Buttery", 300, 40);
-        Bun bath_bun = new Bun(10, 75, "Bath bun", "Bun");
-        Bun beef_bun = new Bun(15, 100, "Beef bun", "Bun");
-        Cake brownie = new Cake("Cake", "Brownie", 1000, 60);
-        Cake blondie = new Cake("Cake", "Blondie", 600, 50);
+        Bread bannok = new Bread(100, 300, "Buttery", BakeryType.Bread);
+        Bread buttery = new Bread(120, 250, "Bannok", BakeryType.Bread);
+        Bun bath_bun = new Bun(70, 100, "Bath bun", BakeryType.Bun);
+        Bun beef_bun = new Bun(45, 75, "Beef bun", BakeryType.Bun);
+        Cake brownie = new Cake(200, 600, "Brownie", BakeryType.Cake);
+        Cake blondie = new Cake(250, 500, "Blondie", BakeryType.Cake);
 
 
         List<Bakery> bakeries = new ArrayList<>();
@@ -35,34 +35,30 @@ public class TestFinal {
         bakeries.add(brownie);
         bakeries.add(blondie);
 
-        Bakerystore.putBakeryOnShelf(bakeries);
+        Bakerystore.putBakeryOnCount(bakeries, BakeryType.Bread);
+        Bakerystore.putBakeryOnCount(bakeries, BakeryType.Bun);
+        Bakerystore.putBakeryOnCount(bakeries, BakeryType.Cake);
 
+        Bakerystore.putBakeryOnCount(bakeries);
 
-        Bread bread = new Bread("Bread", "Bannok", 200, 30);
-        Bread bread1 = new Bread("Bread", "Buttery", 300, 40);
+        Bread bread = new Bread(100, 300, "Buttery", BakeryType.Bread);
+        Bread bread1 = new Bread(120, 250, "Bannok", BakeryType.Bread);
         System.out.println(bread.equals(bread1));
 
         System.out.println(bread == bread1);
 
-        /*Comparator<Bakery> pcomp = new BakeryWeightComparator();
+        Comparator<Bakery> pcomp = new BakeryWeightComparator();
         TreeSet<Bakery> bakeries1 = new TreeSet(pcomp);
-        bakeries1.add(new Bread("Bread", "Buttery", 100, 20));
-        bakeries1.add(new Bread("Bread", "Bannok", 200, 30));
+        bakeries1.add(new Bread(100, 300, "Buttery", BakeryType.Bread));
+        bakeries1.add(new Bread(120, 250, "Bannok", BakeryType.Bread));
+        bakeries1.add(new Bread(70, 100, "Bath bun", BakeryType.Bun));
+        bakeries1.add(new Bread(45, 75, "Beef bun", BakeryType.Bun));
+        bakeries1.add(new Bread(200, 600, "Brownie", BakeryType.Cake));
+        bakeries1.add(new Bread(250, 500, "Blondie", BakeryType.Cake));
 
         for (Bakery b : bakeries1) {
 
-            System.out.println(b.getType() + b.getWeight());
-        }
-        */
-        Comparator<Bakery> pcomp = new BakeryWeightComparator().thenComparing(new BakeryPriceComparator());
-        TreeSet<Bakery> bakeries1 = new TreeSet(pcomp);
-        bakeries1.add(new Bread("Bread", "Buttery", 100, 20));
-        bakeries1.add(new Bread("Bread", "Bannok", 200, 30));
-
-
-        for(Bakery b : bakeries1){
-
-            System.out.println(b.getType() + " " + " " + b.getWeight() + " " + b.getPrice());
+            System.out.println(b.getType() + " " + b.getName() + " " + b.getWeight());
         }
     }
 }

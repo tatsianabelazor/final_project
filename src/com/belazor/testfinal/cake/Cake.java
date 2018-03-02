@@ -1,14 +1,15 @@
 package com.belazor.testfinal.cake;
 
 import com.belazor.testfinal.product.Bakery;
+import com.belazor.testfinal.product.BakeryType;
 
 /**
  * Created by Tatsiana_Belazor on 26-Feb-18.
  */
 public class Cake extends Bakery {
 
-    public Cake(String name, String type, float weight, int price) {
-        super(price, weight, type, name);
+    public Cake(float price, float weight, String name, BakeryType type) {
+        super(price, weight, name, type);
     }
 
     @Override
