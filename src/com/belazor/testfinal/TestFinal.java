@@ -6,6 +6,7 @@ import com.belazor.testfinal.cake.Cake;
 import com.belazor.testfinal.product.Bakery;
 import com.belazor.testfinal.product.BakeryType;
 import com.belazor.testfinal.utils.Bakerystore;
+import com.belazor.testfinal.utils.WeightException;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * Created by Tatsiana_Belazor on 26-Feb-18.
  */
 public class TestFinal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Bread bannok = new Bread(100, 300, "Buttery", BakeryType.Bread);
         Bread buttery = new Bread(120, 250, "Bannok", BakeryType.Bread);
@@ -33,20 +34,17 @@ public class TestFinal {
         Bakerystore.putBakeryOnCount(bakeries, BakeryType.Bread);
         Bakerystore.putBakeryOnCount(bakeries, BakeryType.Bun);
         Bakerystore.putBakeryOnCount(bakeries, BakeryType.Cake);
-        Bakerystore.sortByWeight(bakeries);
-
         Bakerystore.putBakeryOnCount(bakeries);
 
-//        Bread bread = new Bread(100, 300, "Buttery", BakeryType.Bread);
-//        Bread bread1 = new Bread(120, 250, "Bannok", BakeryType.Bread);
-//        System.out.println(bread.equals(bread1));
-//
-//        System.out.println(bread == bread1);
+        try {
+            Bakerystore.sortByWeight(bakeries);
+        } catch (WeightException e) {
+            System.out.println(e.getMessage());
+        }
 
         Bakerystore bakerystore = new Bakerystore();
         bakerystore.countTotalPrice(bakeries);
         bakerystore.findItemByRange(bakeries);
-
     }
 
 }

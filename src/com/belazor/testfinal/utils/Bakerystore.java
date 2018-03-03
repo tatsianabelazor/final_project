@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Bakerystore {
 
-    public static void putBakeryOnCount(List<Bakery> bakeries, BakeryType type) {
+    public static void putBakeryOnCount(List<Bakery> bakeries, BakeryType type) throws Exception {
         List<Bakery> selected = new ArrayList<>();
         for (Bakery b : bakeries) {
             if (type == b.getType()) {
@@ -40,7 +40,7 @@ public class Bakerystore {
     /*
     This method is used to sort items by weight
      */
-    public static void sortByWeight(ArrayList<Bakery> bakeries) {
+    public static void sortByWeight(ArrayList<Bakery> bakeries) throws WeightException {
         BakeryWeightComparator sorting = new BakeryWeightComparator();
         Collections.sort(bakeries, sorting);
         for (Bakery bakery : bakeries) {
