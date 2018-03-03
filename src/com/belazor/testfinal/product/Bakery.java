@@ -5,8 +5,8 @@ package com.belazor.testfinal.product;
  */
 public abstract class Bakery {
 
-    public float price;
-    public float weight;
+    public double price;
+    public double weight;
     public String name;
     public BakeryType type;
 
@@ -17,36 +17,20 @@ public abstract class Bakery {
         this.type = type;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public float getWeight() {
+    public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BakeryType getType() {
         return type;
-    }
-
-    public void setType(BakeryType type) {
-        this.type = type;
     }
 
     public void displayProduct() {
